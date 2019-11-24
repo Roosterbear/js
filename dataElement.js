@@ -1,3 +1,6 @@
+/*
+<h1 id="titulo" data-mensaje="Este es un mensaje oculto" data-mensaje-oculto="Prohibido leer esto">Titulo</h1>
+*/
 let elemento = document.getElementById('titulo')
 //Ver el contenido de la etiqueta
 console.log(elemento.innerHTML)
