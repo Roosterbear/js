@@ -4,8 +4,9 @@ const aguascalientes = document.querySelector('.aguascalientes');
 const mexico = document.querySelector('.mexico');
 const mundo = document.querySelector('.mundo');
 
+// Event bubbling
 fernando.addEventListener('click',e=>{      
-    e.stopImmediatePropagation();  
+    //e.stopImmediatePropagation();  
     alert('Te has contaminado');
 });
 
