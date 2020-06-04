@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Javascript</title>
-    
+    <style>
+        .button{
+            padding: 15px;
+            margin: 10px;
+            border: 1px solid #111111;
+            text-decoration: none;
+            color:tomato;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -29,8 +37,11 @@
        <input type="checkbox" id="opcion"> Bañarme
        <input type="checkbox" id="opcion"> Trabajar
        <hr>
-       <input type="radio" id="radio1"> si
-       <input type="radio" id="radio2"> no
+       <input type="radio" name="tipo_solicitud" id="si" checked="checked">Si
+       <input type="radio" name="tipo_solicitud" id="no"> no
+       <hr><br><br>
+       <a href="#" class="button" id="cargar">Cargar</a>
+       <div class="api"></div>
    </div>
 </div>
 <script src="script.js"></script>
