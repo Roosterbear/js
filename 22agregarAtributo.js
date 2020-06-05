@@ -1,3 +1,14 @@
+/*
+  <ul id="elementos">
+       <li>Primer elemento</li>
+       <li>Segundo elemento</li>
+       <li>Tercer elemento</li>
+       <li>Cuarto elemento</li>
+       <li>Quinto elemento</li>
+       <li>Sexto elemento</li>
+       <li>Septimo elemento</li>
+   </ul>
+*/
 const primer = document.querySelector('#elementos');
 
 primer.children[0].classList.add('mi_clasesota');

@@ -1,3 +1,8 @@
+/*
+   <h1>Mensajes</h1>
+    <div id="mensajes"></div>
+*/
+
 const mensajes = ['hola','como estas','me puedes llamar por favor','es urgente'];
 
 function agregarMensaje(mensaje,callback){

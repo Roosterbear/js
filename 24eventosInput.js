@@ -1,3 +1,9 @@
+/* 
+ <label for="myInput">Dame tu nombre: </label>
+<input type="text" name="myInput" id="myInput">
+*/
+
+
 const myInput = document.querySelector('#myInput');
 
 // eventos de tecleo
