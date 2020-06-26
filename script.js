@@ -1,7 +1,19 @@
-//Promesas vs Que
+let robot = {
+    fuerza:1,
+    color:'gris',
+    generacion:'7'
+}
 
-setTimeout(()=>console.log('Quiero ganar'),0);
+let d = new Date();
+let years = d.getFullYear();
 
+let persona = new Object();
+persona.pelo = 'cafe';
+persona.year = 1976;
+persona.edad = function(){
+    return years-this.year;
+},
+persona.altura = 1.7;
 
-new Promise(resolve=>resolve('Ganan las promesas!'))
-    .then(console.log);
+console.log(robot.color);
+console.info(persona.edad());

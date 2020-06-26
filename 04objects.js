@@ -10,7 +10,7 @@ let year = d.getFullYear();
 let persona = new Object();
 persona.pelo = 'cafe';
 persona.year = 1976;
-persona.edad = function(yearbirth,thisyear){
+persona.edad = function(){
     return year-this.year;
 },
 persona.altura = 1.7;
