@@ -10,10 +10,10 @@ console.log(z);
 */
 
 /*
-hola();
 function hola(){
     console.info("Hola");
 }
+hola();
 */
 
 /*
@@ -21,6 +21,8 @@ saludo = function(){
     console.log("Saludos");
 };
 
+saludo();
 console.info(typeof(saludo));
-var saludo;
+var saludo = 1;
+console.info(typeof(saludo));
 */

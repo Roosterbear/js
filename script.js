@@ -1,19 +1,23 @@
-let robot = {
-    fuerza:1,
-    color:'gris',
-    generacion:'7'
+function suma(num){
+    return num + 2;
 }
 
-let d = new Date();
-let years = d.getFullYear();
+function resta(num){
+    return num-2;
+}
 
-let persona = new Object();
-persona.pelo = 'cafe';
-persona.year = 1976;
-persona.edad = function(){
-    return years-this.year;
-},
-persona.altura = 1.7;
+function multiplicacion(num){
+    return num*2;
+}
 
-console.log(robot.color);
-console.info(persona.edad());
+function division(num){
+    return num/2;
+}
+
+function operaciones(numero,funcion){
+    return funcion(numero);
+}
+console.log(operaciones(6,suma));
+console.log(operaciones(6,resta));
+console.log(operaciones(6,multiplicacion));
+console.log(operaciones(6,division));
