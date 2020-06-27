@@ -14,5 +14,15 @@
     </div>
 </div>
 <script src="script.js"></script>
+
+<script>
+    
+    let nombresLocales = localStorage.getItem('nombres');
+    nombresLocales.forEach(function(nombre,index){
+        console.log(index+1+': '+nombre);
+    });
+
+
+</script>
 </body>
 </html>
