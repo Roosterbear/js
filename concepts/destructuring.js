@@ -8,7 +8,9 @@ const mi_objeto = {
   }
 }
 
-const {nombre, gustos, gustos:{grupo}} = mi_objeto
-
+// Note that gustos: hobbies names "gustos" as "hobbies"
+// gustos:{grupo} gets "grupo" from "gustos" as the same name
+const {nombre, gustos: hobbies, gustos:{grupo}} = mi_objeto
 
 console.log(grupo)
+console.log(hobbies.juego)
