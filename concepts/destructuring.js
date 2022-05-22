@@ -3,8 +3,9 @@ const mi_objeto = {
   apellido: "Perea",
   gustos:{
     musica:"rock",
-    grupo: "pearl jam",
-    juego: "ajedrez"
+    grupo: "Frank Zappa, Pearl Jam, Babasónicos y Caifanes",
+    juego: "Ajedrez",
+    otro: "Leer"
   }
 }
 
@@ -12,5 +13,6 @@ const mi_objeto = {
 // Now, "gustos:{grupo}" gets "grupo" from "gustos" as the same name
 const {nombre, gustos: hobbies, gustos:{grupo}} = mi_objeto
 
-console.log(grupo)
-console.log(hobbies.juego)
+console.log(`Me gusta escuchar la musica de ${grupo}`)
+console.log(`Mi Hobbie es jugar ${hobbies.juego}`)
+console.log(`Mi Hobbie tambien es ${hobbies.otro}`)
