@@ -3,8 +3,8 @@ var valor = 'hola'
 
 function prueba(){
     console.log(valor)
-    // De aqui toma la variable
-    // ...pero cuando lo hace aun no esta definida!
+    // From here takes the variable
+    // ...but when it happens, it isn't defined yet!
     var valor = 'hello'
 }
 
