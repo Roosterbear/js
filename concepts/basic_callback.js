@@ -25,3 +25,22 @@ const doOtherThing = callback_or_whatever =>{
 doOtherThing(the_name_you_like=>{
     console.log(the_name_you_like)
 })
+
+/* Let's do experiments ! */
+
+const numbers = [12,3]
+
+// We have many functions that do something with two numbers
+const sumar = numbers=>numbers[0]+numbers[1]
+const restar = numbers=>numbers[0]-numbers[1]
+const multiplicar = numbers=>numbers[0]*numbers[1]
+const dividir = numbers=>numbers[0]/numbers[1]
+
+const operacion = (numbers,callback)=>callback(numbers)
+
+// We inject the function we need
+console.log(operacion(numbers,sumar))
+console.log(operacion(numbers,restar))
+console.log(operacion(numbers,multiplicar))
+console.log(operacion(numbers,dividir))
+
