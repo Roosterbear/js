@@ -8,6 +8,7 @@ const carrito = [
     {descripcion:'Teclado',precio:200,existencia:true}
 ]
 
+// 'Every' checks if every element keeps a condition
 const existentes = carrito.every(carrito=>carrito.existencia)
 
 console.log(existentes?'Elementos de carrito existentes':'Falta existencia de algun producto')

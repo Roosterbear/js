@@ -10,7 +10,7 @@ const Maleta = {
     precio: 500
 }
 
-// We use this with apply to use "darPrecio" method
+// We use this object 'Compra' with apply to use "darPrecio" method
 const Compra = {
     descripcion: '',
     precio: 0,
@@ -19,8 +19,9 @@ const Compra = {
     }
 }
 
-// With apply, we need an array to inject all arguments at once
+// In 'apply', we need an array to inject all arguments at once
 const arreglo = ['Gracias', ' por su compra', 'vuelva pronto!']
 
-// We use compra to get "darPrecio" method, and pass the object and arguments in array
+// We use compra to get "darPrecio" method, 
+// and pass the object and arguments in array
 Compra.darPrecio.apply(Maleta, arreglo)
