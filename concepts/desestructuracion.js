@@ -27,4 +27,5 @@ const {date} = returnPerson(getNombre(hero));
 const {year, month} = date;
 
 console.log(year, month);
+console.log(date);
 
