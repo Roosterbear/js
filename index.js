@@ -1,27 +1,4 @@
-function setup() {
-    // Write your code here.
+import {heroes} from './problems/data/heroes';
 
-    const post = document.getElementById('postComment')
-    const text = document.getElementById('comment')
+console.log(heroes);
 
-    post.addEventListener("click",agregar(e))
-  }
-
-  function agregar(){
-    document.createElement("li","");
-  }
-  
-  // Example case. 
-  document.body.innerHTML = `
-  <ul id='commentList'>
-  </ul>
-  <form>
-    <input type='text' id='comment'/>
-    <input type='button' id='postComment' value='Post'/>
-  </form>`;
-  
-  setup();
-  
-  document.getElementById("comment").value = "test"; 
-  document.getElementById("postComment").click();
-  console.log(document.body.innerHTML);

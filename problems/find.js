@@ -1,0 +1,2 @@
+import {} from './data/heroes';
+
