@@ -14,14 +14,15 @@ const Maleta = {
 const Compra = {
     descripcion: '',
     precio: 0,
-    darPrecio: function(gracias,por_su_compra, vuelva_pronto){
-        console.log(`Pago de ${Math.ceil(this.precio*1.15)} por ${this.descripcion} - ${gracias} ${por_su_compra}, ${vuelva_pronto}`)
+    darPrecio: function(gracias, por_su_compra, vuelva_pronto){
+        console.log(`Pago de ${Math.ceil(this.precio*1.15)} por ${this.descripcion} - ${gracias} ${por_su_compra}, ${vuelva_pronto}`);
     }
 }
 
 // In 'apply', we need an array to inject all arguments at once
-const arreglo = ['Gracias', ' por su compra', 'vuelva pronto!']
+const arreglo = ['Gracias', ' por su compra', 'vuelva pronto!'];
 
 // We use compra to get "darPrecio" method, 
 // and pass the object and arguments in array
-Compra.darPrecio.apply(Maleta, arreglo)
+Compra.darPrecio.apply(Maleta, arreglo);
+Compra.darPrecio.apply(Toalla, arreglo);

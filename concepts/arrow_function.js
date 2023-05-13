@@ -1,6 +1,6 @@
 const nombre = 'Luis'
 
-// This is an Expression normal function
+// This is a normal function expresion
 const normal = function(nombre){
     return `Hola ${nombre} desde una funcion normal de expresion`
 }
@@ -23,7 +23,7 @@ const arrowArg = nombre=>{
 console.log(arrowArg(nombre))
 
 
-// When function is a single line, we can remove the keys
+// When the function body is a single line, we can remove the keys
 const arrowNoKeys = nombre=>`Hola ${nombre} desde una arrow function sin llaves`
 console.log(arrowNoKeys(nombre))
 

@@ -1,4 +1,3 @@
-import {heroes} from './problems/data/heroes';
-
-console.log(heroes);
+// You can paste JS code here
+console.log('Hola mundo');
 
