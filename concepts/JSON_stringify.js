@@ -1,5 +1,5 @@
 const my_object = {
-  description: 'Video game',
+  description: 'Video Game',
   price: 500,
   year: 2000
 }
@@ -8,4 +8,4 @@ const my_object = {
 const game = JSON.stringify(my_object);
 
 console.log(game);
-console.log("La variable pasada por JSON.stringify es del tipo: "+typeof(game));
+console.log("The variable passed by JSON.stringify is the type of: "+typeof(game));
