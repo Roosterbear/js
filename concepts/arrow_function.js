@@ -28,7 +28,7 @@ const arrowNoKeys = nombre=>`Hola ${nombre} desde una arrow function sin llaves`
 console.log(arrowNoKeys(nombre))
 
 
-// We can omit the word return to return the last value
+// Also we can omit the word return to return the last value
 const arrowNoReturn = nombre=>`Hola ${nombre} desde una arrow function sin return`
 console.log(arrowNoReturn(nombre))
 

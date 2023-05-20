@@ -22,7 +22,8 @@ const Compra = {
 // In 'apply', we need an array to inject all arguments at once
 const arreglo = ['Gracias', ' por su compra', 'vuelva pronto!'];
 
-// We use compra to get "darPrecio" method, 
+// We use "compra" to get "darPrecio" method, 
 // and pass the object and arguments in array
+// also "descripcion" and "precio" from every object
 Compra.darPrecio.apply(Maleta, arreglo);
 Compra.darPrecio.apply(Toalla, arreglo);
