@@ -8,9 +8,9 @@ class Person{
   }
 
   saludar(){
-    return 'Hola ';
+    return 'Hola mundo';
   }
 }
 
 let persona = new Person('Luis');
-console.log(persona.saludar()+persona.name);
+console.log(persona.saludar);
