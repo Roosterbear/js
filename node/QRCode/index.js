@@ -2,6 +2,7 @@
 import inquirer from 'inquirer';
 // From npm package. To turn the user entered URL into a QR Code image.
 import qr from 'qr-image';
+import fs from 'fs';
 
 inquirer
   .prompt([
@@ -12,6 +13,14 @@ inquirer
   ])
   .then((answers) => {
     const url = answers.URL;
+    //console.log(answers);
+    var qr_svg = qr.image(url);
+    qr_svg.pipe(fs.createWriteStream("qr_img.png"));
+
+    fs.writeFile("URL.txt", url, (err)=>{
+      if(err) throw err;
+      console.log("The file has been saved");
+    });
   })
   .catch((error) => { 
     if (error.isTtyError) {
