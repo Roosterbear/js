@@ -1,4 +1,6 @@
+// From npm package. To get user input.
 import inquirer from 'inquirer';
+// From npm package. To turn the user entered URL into a QR Code image.
 import qr from 'qr-image';
 
 inquirer
