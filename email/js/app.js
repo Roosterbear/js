@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const inputEmail = document.querySelector('#email');
   const inputAsunto =  document.querySelector('#asunto');
   const inputMensaje = document.querySelector('#mensaje');
+  const formulario = document.querySelector('#formulario');
   const btnSubmit = document.querySelector('#btnSubmit');
+  const btnReset = document.querySelector('#btnReset');
+  const spinner = document.querySelector('#spinner');
 
   // Assign events
   inputEmail.addEventListener('input', validate);
@@ -16,6 +19,39 @@ document.addEventListener('DOMContentLoaded', function(){
   inputAsunto.addEventListener('input', validate);
 
   inputMensaje.addEventListener('input', validate);
+
+  formulario.addEventListener('submit', enviarEmail);
+
+  btnReset.addEventListener('click', function(e){
+    e.preventDefault();
+
+    resetForm();
+  });
+
+  function enviarEmail(e){
+    e.preventDefault();
+
+    spinner.classList.add('flex');
+    spinner.classList.remove('hidden');
+
+    setTimeout(()=>{
+      spinner.classList.remove('flex');
+      spinner.classList.add('hidden');
+
+      resetForm();
+
+      const successAlert = document.createElement("P");
+      successAlert.classList.add('bg-green-500', 'text-white', 'p-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+      successAlert.textContent = 'Mensaje enviado correctamente';
+      formulario.appendChild(successAlert);
+
+      setTimeout(()=>{
+        successAlert.remove();
+      },2000);
+    },2000);
+
+
+  }
 
   function validate(e){
     let reference = e.target.parentElement;
@@ -78,6 +114,15 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     btnSubmit.classList.remove('opacity-50');
     btnSubmit.disabled = false;
+  }
+
+  function resetForm(){
+    email.email = '';
+    email.asunto = '';
+    email.mensaje = '';
+
+    formulario.reset();
+    comprobarEmail();
   }
 
 });

@@ -7,6 +7,7 @@
     <link rel="icon" href="#">
     <title>Envio de Emails</title>
     <link rel="stylesheet" href="dist/app.css">
+    <link rel="stylesheet" href="dist/spinner.css">
 </head>
 <body class="min-h-screen bg-slate-300">
     <div class="max-w-3xl mx-auto p-10">
@@ -42,6 +43,7 @@
                     </button>
 
                     <button 
+                    id="btnReset"
                         class="flex-1 bg-gray-800 text-white flex justify-center gap-2 items-center p-3"
                         type="reset"
                     >
@@ -52,6 +54,16 @@
                     </button>
                 </div>           
             </form>
+            <div id="spinner" class="hidden justify-center mt-10">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                </div>
+            </div>
         </div>
     </div>
 
