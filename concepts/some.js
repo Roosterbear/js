@@ -13,4 +13,6 @@ const descuento = carrito.some(carrito=>carrito.precio>1000)
 // Uncomment below to change message
 //const descuento = carrito.some(carrito=>carrito.precio>10000000)
 
+
+// if some product (at least one) costs some price, return true...
 console.log(descuento?'Aplica descuento':'No aplica descuento')

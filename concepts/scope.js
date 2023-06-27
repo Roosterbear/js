@@ -1,14 +1,27 @@
+/* 1st scope */
+/* --------------------------------------------------------------- */
 
+// We can not declare "number" with var, let or const in this scope
 let number = 1;
-console.log("Desde scope global "+number);
+console.log("From global scope "+number);
+
+
 if(true){
+  /* 2nd scope */
+  /* --------------------------------------------------------------- */
+
+  /* This "number" is just for this level */
   const number = 2
-  console.log("Desde primer nivel de bloque "+number);
+  console.log("Value from first level of the block "+number);
   
   if(true){
-    // If I declare it as var, it will mark an error because I have a  global number yet
+    /* 3rd scope */
+    /* --------------------------------------------------------------- */ 
+
+    /* This "number" is just for this level */
+    // If I declare it as var, it will throw an error because we have a global number yet
     let number = 3
-    console.log("Desde segundo nivel de bloque "+number);
+    console.log("Value from second level of the block "+number);
 
   }
 }

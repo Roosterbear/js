@@ -3,7 +3,7 @@ const names = ['Isa', 'Wicho', 'Tony']
 
 const more_names = ['Anastasio','Panchito', 'Jeremias']
 
-// Coping arrays the best way
+// Copying arrays the best way
 const new_names = [...names]
 
 // Mixing arrays the best ways

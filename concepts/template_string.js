@@ -1,5 +1,5 @@
-    // Remember that backtick key is besides Enter key
-    const nombre = `Luis Fernando`;
-    const saludo = `Hola, mi nombre es ${nombre}`;
+    // Remember that backtick is activated with alt Gr and the key beside "Enter". 
+    const nombre = 'Luis Fernando';
+    const saludo = `Hello, my name is ${nombre}`;
 
     console.log(saludo);
