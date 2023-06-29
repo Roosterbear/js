@@ -1,6 +1,4 @@
-// Crear un objeto
-// De un objeto dado, solo pasar a una funcion el nombre como parametro
-// Desestructurar un objeto dentro de otro objeto
+
 
 const hero = {
     nombre: "Ironman",

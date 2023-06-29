@@ -1,4 +1,4 @@
-// Reference pass - we pass an object
+// Pass by Reference - we pass an object
 // The object changes, it is not a COPY
 
 const worker = {

@@ -11,4 +11,4 @@ const carrito = [
 // 'Every' checks if every element keeps a condition
 const existentes = carrito.every(carrito=>carrito.existencia)
 
-console.log(existentes?'Elementos de carrito existentes':'Falta existencia de algun producto')
+console.log(existentes?'All elements in the cart are 0k':'Missing product')

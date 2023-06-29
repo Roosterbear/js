@@ -3,7 +3,7 @@ const mi_objeto = {
   apellido: "Perea",
   gustos:{
     musica:"rock",
-    grupo: "Frank Zappa, Pearl Jam, Babasónicos y Caifanes",
+    grupo: "Frank Zappa, Pearl Jam, Belle and Sebastian, Babasónicos y Caifanes",
     juego: "Ajedrez",
     otro: "Leer"
   }

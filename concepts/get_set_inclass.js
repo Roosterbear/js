@@ -14,9 +14,14 @@ class Song{
 }
 
 const mySong = new Song('Black', 'Metallica')
-// We do not need the parenthesis
+
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// In a get, we do not need the parenthesis
 mySong.getSong
-// We pass the value as a normal variable
-mySong.band = 'pearl jam';
+
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// In a set, we pass the value as a normal variable
+mySong.band = 'Pearl Jam';
+
 mySong.getSong
 
