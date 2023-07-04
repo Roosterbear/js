@@ -4,7 +4,7 @@ function iniciarApp(){
   selectCategorias.addEventListener('change', seleccionarCategoria)
 
   const resultado = document.querySelector('#resultado');
-  const modal = new bootstrap.Modal('#Modal', {});
+  const modal = new bootstrap.Modal('#modal', {});
 
   obtenerCategorias();
 
@@ -99,7 +99,19 @@ function iniciarApp(){
   }
 
   function mostrarRecetaModal(receta){
-    console.log(receta);
+    const {idMeal, strInstructions, strMeal, strMealThumb} = receta;
+    
+    const modalTitle = document.querySelector('.modal .modal-title');
+    const modalBody = document.querySelector('.modal .modal-body');
+
+    modalTitle.textContent = strMeal;
+
+    modalBody.innerHTML = `
+      <img src="${strMealThumb}" class="img-fluid" alt="receta ${strMeal}" />
+      <h3 class="my-2">Instrucciones</h3>
+      <p>${strInstructions}</p>
+    `
+    modal.show();
   }
 
   function limpiarHTML(selector){
