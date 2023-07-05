@@ -1,13 +1,19 @@
 function iniciarApp(){
 
+  // Our select
   const selectCategorias = document.querySelector('#categorias');
   selectCategorias.addEventListener('change', seleccionarCategoria)
 
+  // The space where the meals are diplayed
   const resultado = document.querySelector('#resultado');
+
+  // Adding the modal for recipes
   const modal = new bootstrap.Modal('#modal', {});
 
+  // Calling the function to fill our select
   obtenerCategorias();
 
+  // Getting the categories
   function obtenerCategorias(){
     const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
     fetch(url)
@@ -15,18 +21,18 @@ function iniciarApp(){
       .then(resultado=>mostrarCategorias(resultado.categories))
   }
 
+  // Filling the select of categories
   function mostrarCategorias(categorias = []){
-
     categorias.forEach(categoria=>{
       const {strCategory} = categoria;
       const option = document.createElement('OPTION');
       option.value = strCategory;
       option.textContent = strCategory;
-
       selectCategorias.appendChild(option);
     })
   }
 
+  // Choosing our category
   function seleccionarCategoria(e){
     const categoria = e.target.value;
     const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoria}`;
@@ -36,6 +42,7 @@ function iniciarApp(){
       .then(resultado=>mostrarRecetas(resultado.meals))
   }
 
+  // Creating the Meals Cards
   function mostrarRecetas(recetas=[]){
     
     limpiarHTML(resultado);
@@ -86,6 +93,7 @@ function iniciarApp(){
     })
   }
 
+  // Choosing our meals
   function seleccionarReceta(id){
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     fetch(url)
@@ -93,6 +101,7 @@ function iniciarApp(){
       .then(resultado=>mostrarRecetaModal(resultado.meals[0]))
   }
 
+  // Creating modal recipe
   function mostrarRecetaModal(receta){
     const {idMeal, strInstructions, strMeal, strMealThumb} = receta;
     
@@ -124,9 +133,43 @@ function iniciarApp(){
     }
 
     modalBody.appendChild(listGroup);
+
+    const modalFooter = document.querySelector('.modal-footer');
+    limpiarHTML(modalFooter);
+
+    const btnFavorito = document.createElement('BUTTON');
+    btnFavorito.classList.add('btn', 'btn-danger', 'col');
+    btnFavorito.textContent = 'Save';
+
+    // Store favorites in LocalStorage
+    btnFavorito.onclick = function(){
+      agregarFavorito({
+        id:idMeal,
+        titulo:strMeal,
+        img:strMealThumb
+      });
+    }
+
+    const btnCerrarModal = document.createElement('BUTTON');
+    btnCerrarModal.classList.add('btn', 'btn-secondary', 'col');
+    btnCerrarModal.textContent = 'Close';
+    btnCerrarModal.onclick = function(){
+      modal.hide();
+    }
+
+
+    modalFooter.appendChild(btnFavorito);
+    modalFooter.appendChild(btnCerrarModal);
+
     modal.show();
   }
 
+  function agregarFavorito(receta){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
+    localStorage.setItem('favoritos', JSON.stringify([...favoritos,receta]));
+  }
+
+  // Cleaning results before adding new content
   function limpiarHTML(selector){
     while(selector.firstChild){
       selector.removeChild(selector.firstChild);
