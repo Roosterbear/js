@@ -145,6 +145,7 @@ function iniciarApp(){
     btnFavorito.onclick = function(){
 
       if(existeStorage(idMeal)){
+        eliminarFavoritos(idMeal);
         return
       }
 
@@ -172,6 +173,12 @@ function iniciarApp(){
   function agregarFavorito(receta){
     const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
     localStorage.setItem('favoritos', JSON.stringify([...favoritos,receta]));
+  }
+
+  function eliminarFavoritos(id){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
+    const nuevosFavoritos = favoritos.filter(favorito=>favorito.id !== id);
+    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
   }
 
   function existeStorage(id){
