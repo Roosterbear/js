@@ -139,13 +139,14 @@ function iniciarApp(){
 
     const btnFavorito = document.createElement('BUTTON');
     btnFavorito.classList.add('btn', 'btn-danger', 'col');
-    btnFavorito.textContent = 'Save';
+    btnFavorito.textContent = existeStorage(idMeal)?'Unsave':'Save';
 
     // Store favorites in LocalStorage
     btnFavorito.onclick = function(){
 
       if(existeStorage(idMeal)){
         eliminarFavoritos(idMeal);
+        btnFavorito.textContent = 'Save';
         return
       }
 
@@ -154,6 +155,7 @@ function iniciarApp(){
         titulo:strMeal,
         img:strMealThumb
       });
+      btnFavorito.textContent = 'Unsave';
     }
 
     const btnCerrarModal = document.createElement('BUTTON');
