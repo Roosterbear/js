@@ -2,7 +2,12 @@ function iniciarApp(){
 
   // Our select
   const selectCategorias = document.querySelector('#categorias');
-  selectCategorias.addEventListener('change', seleccionarCategoria)
+
+  if(selectCategorias){
+    selectCategorias.addEventListener('change', seleccionarCategoria);
+    // Calling the function to fill our select
+    obtenerCategorias();
+  }
 
   // The space where the meals are diplayed
   const resultado = document.querySelector('#resultado');
@@ -10,8 +15,7 @@ function iniciarApp(){
   // Adding the modal for recipes
   const modal = new bootstrap.Modal('#modal', {});
 
-  // Calling the function to fill our select
-  obtenerCategorias();
+  
 
   // Getting the categories
   function obtenerCategorias(){
@@ -147,6 +151,7 @@ function iniciarApp(){
       if(existeStorage(idMeal)){
         eliminarFavoritos(idMeal);
         btnFavorito.textContent = 'Save';
+        mostrarToast('Eliminado correctamente');
         return
       }
 
@@ -156,6 +161,7 @@ function iniciarApp(){
         img:strMealThumb
       });
       btnFavorito.textContent = 'Unsave';
+      mostrarToast('Agregado correctamente');
     }
 
     const btnCerrarModal = document.createElement('BUTTON');
@@ -186,6 +192,14 @@ function iniciarApp(){
   function existeStorage(id){
     const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
     return favoritos.some(favorito=>favorito.id === id);
+  }
+
+  function mostrarToast(mensaje){
+    const toastDIV = document.querySelector('#toast');
+    const toastBody = document.querySelector('.toast-body');
+    const toast = new bootstrap.Toast(toastDIV);
+    toastBody.textContent = mensaje;
+    toast.show();
   }
 
   // Cleaning results before adding new content
