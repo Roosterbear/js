@@ -40,11 +40,6 @@ function iniciarApp(){
     
     limpiarHTML(resultado);
 
-    const heading = document.createElement('H2');
-    heading.classList.add('text-center', 'text-black', 'my-5');
-    heading.textContent = recetas.length?'Resultados':'No se encontraron resultados';
-    resultado.appendChild(heading);
-
     recetas.forEach(receta=>{
       const {idMeal, strMeal, strMealThumb} = receta;
 
@@ -68,7 +63,7 @@ function iniciarApp(){
 
       const recetaButton = document.createElement('BUTTON');
       recetaButton.classList.add('btn', 'btn-danger', 'w-100');
-      recetaButton.textContent = 'Ver Receta';
+      recetaButton.textContent = 'Open Recipe';
       //recetaButton.dataset.bsTarget = "#modal";
       //recetaButton.dataset.bsToggle = "modal";
       recetaButton.onclick = function(){
@@ -108,9 +103,27 @@ function iniciarApp(){
 
     modalBody.innerHTML = `
       <img src="${strMealThumb}" class="img-fluid" alt="receta ${strMeal}" />
-      <h3 class="my-2">Instrucciones</h3>
+      <h3 class="my-2">Instructions</h3>
       <p>${strInstructions}</p>
+      <h3 class="my-3">Ingredients - Measures</h3>
     `
+
+    const listGroup = document.createElement('UL');
+    listGroup.classList.add('list-group');
+    for(let i=1;i<=20;i++){
+      if(receta[`strIngredient${i}`]){
+        const ingrediente = receta[`strIngredient${i}`];
+        const cantidad = receta[`strMeasure${i}`];
+
+        const ingredienteLi = document.createElement('LI');
+        ingredienteLi.classList.add('list-group-item');
+        ingredienteLi.textContent = `${ingrediente} - ${cantidad}`;
+
+        listGroup.appendChild(ingredienteLi);
+      }
+    }
+
+    modalBody.appendChild(listGroup);
     modal.show();
   }
 
