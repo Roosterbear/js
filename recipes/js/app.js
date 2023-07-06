@@ -3,14 +3,21 @@ function iniciarApp(){
   // Our select
   const selectCategorias = document.querySelector('#categorias');
 
+  // The space where the meals are diplayed
+  const resultado = document.querySelector('#resultado');
+
+
   if(selectCategorias){
     selectCategorias.addEventListener('change', seleccionarCategoria);
     // Calling the function to fill our select
     obtenerCategorias();
   }
 
-  // The space where the meals are diplayed
-  const resultado = document.querySelector('#resultado');
+  const favoritosDIV = document.querySelector('.favoritos');
+  if(favoritosDIV){
+    obtenerFavoritos();
+  }
+
 
   // Adding the modal for recipes
   const modal = new bootstrap.Modal('#modal', {});
@@ -48,7 +55,11 @@ function iniciarApp(){
 
   // Creating the Meals Cards
   function mostrarRecetas(recetas=[]){
-    
+    // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    //  When API, we have: idMeal, strMeal, strMealThumb
+    //  When favorites, we have: id, titulo and img
+    // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
     limpiarHTML(resultado);
 
     recetas.forEach(receta=>{
@@ -62,15 +73,15 @@ function iniciarApp(){
 
       const recetaImagen = document.createElement('IMG');
       recetaImagen.classList.add('card-img-top');
-      recetaImagen.alt = `Imagen de la Receta ${strMeal}`;
-      recetaImagen.src = strMealThumb;
+      recetaImagen.alt = `Imagen de la Receta ${strMeal??receta.titulo}`;
+      recetaImagen.src = strMealThumb??receta.img;
 
       const recetaCardBody = document.createElement('DIV');
       recetaCardBody.classList.add('card-body');
 
       const recetaHeading = document.createElement('H3');
       recetaHeading.classList.add('card-title', 'mb-3', 'text-center');
-      recetaHeading.textContent = strMeal;
+      recetaHeading.textContent = strMeal??receta.titulo;
 
       const recetaButton = document.createElement('BUTTON');
       recetaButton.classList.add('btn', 'btn-danger', 'w-100');
@@ -78,7 +89,7 @@ function iniciarApp(){
       //recetaButton.dataset.bsTarget = "#modal";
       //recetaButton.dataset.bsToggle = "modal";
       recetaButton.onclick = function(){
-        seleccionarReceta(idMeal);
+        seleccionarReceta(idMeal??receta.id);
       }
 
 
@@ -168,6 +179,7 @@ function iniciarApp(){
     btnCerrarModal.classList.add('btn', 'btn-secondary', 'col');
     btnCerrarModal.textContent = 'Close';
     btnCerrarModal.onclick = function(){
+      const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
       modal.hide();
     }
 
@@ -200,6 +212,19 @@ function iniciarApp(){
     const toast = new bootstrap.Toast(toastDIV);
     toastBody.textContent = mensaje;
     toast.show();
+  }
+
+  function obtenerFavoritos(){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos'))??[];
+    if(favoritos.length){
+      mostrarRecetas(favoritos);
+      return
+    }else{
+      const noFavoritos = document.createElement('P');
+      noFavoritos.textContent = 'There is no favorites yet';
+      noFavoritos.classList.add('fs-4','text-center','font-bold', 'mt-5') ;
+      favoritosDIV.appendChild(noFavoritos);
+    }
   }
 
   // Cleaning results before adding new content
