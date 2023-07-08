@@ -1,28 +1,4 @@
-    /*
-     
-    Dado un array o un objeto de superhéroes de Marvel, haz un programa que pueda
-    mostrar la información de un superheroe.
-     
-    Y añade una capacidad de buscar la información de varios superhéroes a la vez.
-     
-    Ejemplo:
-    mostrarInformacionSuperheroe('Iron Man');
-     
-    Salida:
-    Nombre real: Tony Stark
-    powers: Tecnología avanzada, Movilidad aérea
-    team: Avengers
-     
-    Ejemplo 2: 
-    mostrarInformacionSuperheroes([array de nombres]]);
-     
-    Salida:
-    Muestra la información de todos los superheroes
-     
-    */
-     
-    // Crear array de objetos de superheroes marvel
-    const heroes = {
+    const superheroes = {
       'Ironman': {
           realName: 'Tony Stark',
           powers: ['Advanced Tech', 'Air mobility'],
@@ -73,6 +49,29 @@
    
 // ################################################################
 
-function showHero(name){
-
+function showHero(hero){
+   
+    if(hero in superheroes){
+        const info = superheroes[hero];
+        console.log(`####### ${hero} #######`);
+        console.log(`Real name: ${info.realName}`);
+        console.log(`Powers: ${info.powers.join(', ')}`);
+        console.log(`Team: ${info.team}`);
+        console.log(``);
+    }else{
+        console.log(`There are not data from ${hero.toUpperCase()}`);
+        console.log(``);
+    }
 }
+
+
+function showHeroes(heroes){
+    heroes.forEach(hero=>{
+        showHero(hero);
+    });
+}
+
+
+showHero('Batman');
+showHero('Ronin');
+showHeroes(['Flash', 'Ironman', 'Riddler', 'Wonder Woman', 'Captain America', 'Joker']);
