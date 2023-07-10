@@ -1,3 +1,9 @@
+    // From a superheroes object:
+    // 1.- Make a function that accept a name. Seek if the heroe exists.
+    // 2.- Make a function that receives an array of names and seek if heroes exist.
+    // 3.- In both cases, display info if the superehero exists.
+    
+    
     const superheroes = {
       'Ironman': {
           realName: 'Tony Stark',
