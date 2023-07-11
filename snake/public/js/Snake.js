@@ -1,6 +1,9 @@
+// RUN WITH: node index.js
+
 export default class Snake{
   constructor(scene){
     this.scene = scene;
+    this.direction = Pasher.Math.Vector2.RIGHT;
     this.body = [];
     
     this.body.push(
@@ -18,10 +21,25 @@ export default class Snake{
 
   keydown(event){
     console.log(event);
+    switch(event.keycode){
+      case 37: // left
+        this.direction = Phaser.Math.Vector2.LEFT; 
+        break;
+      case 38: // up
+        break;
+        this.direction = Phaser.Math.Vector2.UP; 
+       case 39: // right
+        break;
+        this.direction = Phaser.Math.Vector2.RIGHT; 
+       case 40: // down
+        break;
+        this.direction = Phaser.Math.Vector2.DOWN; 
+      
+    }
   }
 
   update(time){
-    this.body[0].x += 1;
-    this.body[0].y += 1;
+    this.body[0].x += this.direction.x;
+    this.body[0].y += this.direction.y;
   }
 }
