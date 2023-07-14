@@ -1,4 +1,4 @@
-import Snake from './Snake.js';
+import Snake from './Snake.js'
 
 export default class MainScene extends Phaser.Scene{
   constructor(){
