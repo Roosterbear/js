@@ -3,7 +3,7 @@
 We get a Linux absolute path and we have to simplify it.
 
 Rules:
-When there are spaces (double bar) or ".", ommit.
+When there are spaces, double bar or ".", ommit.
 When there are "..", delete the last folder.
 
 pathSimplify("/home/");             // Output: /home
@@ -11,10 +11,8 @@ pathSimplify("/x/./y/../../z/");    // Output: /z
 pathSimplify("/../");               // Output: /
 pathSimplify("/home//pruebas/");    // Output: /home/pruebas
  
-When there are spaces (double bar) or ".", ommit.
-When there are "..", delete the last folder.
-
 */
+
 
 function pathSimplify(path){
   let pile = [];
