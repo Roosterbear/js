@@ -2,6 +2,12 @@
 
 ## Practice of APIs and Pagination
 
+__Works on Live server or directly in HTML__ <br/>
+
+__Uses Customed Tailwind__ <br/>
+
+
+###### WORKING ON IT !!
 
 
 
