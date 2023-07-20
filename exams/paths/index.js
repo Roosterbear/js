@@ -1,6 +1,6 @@
 /*
 
-We get a Linux absolute path and we have to simplify it.
+Given a Linux absolute path, get a simplified path.
 
 Rules:
 When there are spaces, double bar or ".", ommit.
@@ -19,10 +19,15 @@ function pathSimplify(path){
 
   const parts = path.split('/');
 
+  // Array Test
+  //parts.forEach(p=>console.log(p));
+
   for(const part of parts){
+    // Deleting the last item from the array
     if(part==='..'){
       pile.pop();
     }
+    // Adding items while not blank or one dot
     else if(part !== '.' && part !== ''){
       pile.push(part);
     }
@@ -41,4 +46,3 @@ console.log(pathSimplify("/home//pruebas/"));    // Output: /home/pruebas
 Now, do the same with filter and reduce
 
 */
- 

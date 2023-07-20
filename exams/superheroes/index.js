@@ -1,7 +1,7 @@
     // From a superheroes object:
     // 1.- Make a function that accept a name. Seek if the heroe exists.
     // 2.- Make a function that receives an array of names and seek if heroes exist.
-    // 3.- In both cases, display info if the superehero exists.
+    // 3.- In both cases, display info if the superehero exists or not.
     
     
     const superheroes = {
@@ -65,7 +65,7 @@ function showHero(hero){
         console.log(`Team: ${info.team}`);
         console.log(``);
     }else{
-        console.log(`There are not data from ${hero.toUpperCase()}`);
+        console.log(`??? >> There are not data from ${hero.toUpperCase()}`);
         console.log(``);
     }
 }

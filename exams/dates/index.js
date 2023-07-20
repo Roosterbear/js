@@ -6,7 +6,6 @@ Rules:
 
 -No negative numbers
 
-
 */
 
 function daysDifference(date1, date2){
