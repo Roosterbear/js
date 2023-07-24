@@ -10,9 +10,9 @@ export default class Snake{
        this.scene.add.rectangle(100, 100, 16, 16, 0xff0000).setOrigin(0)
     );
     
-    // this.body.push(
-    //   this.scene.add.rectangle(0, 0, 16, 16, 0x0000ff).setOrigin(0)
-    // );
+    this.body.push(
+      this.scene.add.rectangle(0, 0, 16, 16, 0x0000ff).setOrigin(0)
+     );
 
     scene.input.keyboard.on('keydown', e=>{
       this.keydown(e);
@@ -46,6 +46,8 @@ export default class Snake{
   }
 
   move(){
+    this.body[1].x = this.body[0].x;
+    this.body[1].y = this.body[0].y;
     this.body[0].x += this.direction.x*16;
     this.body[0].y += this.direction.y*16;
   }
